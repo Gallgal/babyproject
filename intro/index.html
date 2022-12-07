@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>인트로 수정</title>
+	<style type="text/css">
+		@import url(//fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
+
+.nanummyeongjo * {
+ font-family: 'Nanum Myeongjo', serif;
+}
+		body{background: black;
+			font-family: 'Nanum Myeongjo', serif;
+			font-size: 14pt;
+			color: white;
+			text-align: center;}
+		#lE{color: lightgray;
+			font-size: 1rem; line-height: 1.5rem;}
+		#lK{line-height: 1.5rem;}
+		.intro{width:  60vw; position: relative;top: 20vh; margin: auto;}
+		.intro2{width: 15vw; height: 15vw; background: white; position: absolute; left: 23vw; top: 12vw;}
+		.lyric{position: absolute; width: 400px ;bottom: 10vh; left: 50vw; opacity: 1; transform: translateX(-200px);}
+		.ani{animation:ani 1s forwards;}
+		@keyframes ani{from{opacity: 0;}to{opacity: 1;}}
+	</style>
+</head>
+<body>
+<section id="s1">
+	<div class="intro">
+	<img src="intro.gif" style="width:  60vw;">
+	<div class="intro2" id="introBox">
+		<span style="color: black;line-height: 15vw;"><i>Click me!</i></span>
+	</div></div>
+
+	<audio src="bgm.mp3" id="bgm"></audio>
+	<audio src="baby.mp3" id="baby"></audio>
+</section>
+
+<section class="s2"></section>
+<section class="s3"></section>
+<section class="s4"></section>
+<section class="s5"></section>
+
+	<div class="lyric"><span id="lE"></span><br><span id="lK"></span></div>
+	<div id="moni" style="color:white;position: absolute;"></div>
+	
+
+<script type="text/javascript">
+
+//인트로 --------------------
+let name = prompt('성을 제외한 당신의 이름을 입력해주세요.', '길동');
+
+	introBox.onclick = function(){
+	introBox.style.display = 'none';
+	baby.play();}
+
+	baby.onended = function(){
+		start();
+		function start(){
+		bgm.play();
+		monitor();
+		s1.style.display='none';
+
+//자막 타이밍 ---------------------
+
+chLyricsK(lyricsK[0],6.8);
+chLyricsK(lyricsK[1],12.8);
+chLyricsK(lyricsK[2],20);
+chLyricsK(lyricsK[3],25.4);
+chLyricsK(lyricsK[4],33.8);
+chLyricsK(lyricsK[5],41);
+chLyricsK(lyricsK[6],47.3);
+chLyricsK(lyricsK[7],61);
+chLyricsK(lyricsK[8],64.5);
+chLyricsK(lyricsK[9],68.3);
+chLyricsK(lyricsK[10],71.5);
+chLyricsK(lyricsK[11],80.3);
+chLyricsK(lyricsK[12],85.8);
+chLyricsK(lyricsK[13],92.7);
+chLyricsK(lyricsK[14],123);
+
+
+function chLyricsK(lyrics,time){
+        setTimeout(function(){
+                lK.innerHTML = lyrics; 
+        },time*1000);
+}
+
+chLyricsE(lyricsE[0],6.8);
+chLyricsE(lyricsE[1],12.8);
+chLyricsE(lyricsE[2],20);
+chLyricsE(lyricsE[3],25.4);
+chLyricsE(lyricsE[4],33.8);
+chLyricsE(lyricsE[5],41);
+chLyricsE(lyricsE[6],47.3);
+chLyricsE(lyricsE[7],61);
+chLyricsE(lyricsE[8],64.5);
+chLyricsE(lyricsE[9],68.3);
+chLyricsE(lyricsE[10],71.5);
+chLyricsE(lyricsE[11],80.3);
+chLyricsE(lyricsE[12],85.8);
+chLyricsE(lyricsE[13],92.7);
+chLyricsE(lyricsE[14],123);
+
+
+function chLyricsE(lyrics,time){
+        setTimeout(function(){
+                lE.innerHTML = lyrics; 
+        },time*1000);
+        //if (s== lyricsK.length){clearInterval();}
+
+       if (bgm.currentTime > 123){clearInterval();}
+}
+		}}
+
+//--------------커렌트 타임
+
+   function monitor(){
+                setInterval(track,100);
+        }
+
+        function track(){
+                moni.innerHTML = bgm.currentTime;
+        }
+
+// 라이브러리 
+	var lyricsEng = "Wise men say /Only fools rush in /But I can't help /falling in love with you /Shall I stay? /Would it be a sin /If I can't help falling in love with you? /Like a river flows /Surely to the sea /Darling, so it goes /Some things are meant to be /Take my hand /Take my whole life, too /For I can't help falling in love with you/Like a river flows /Surely to the sea /Darling, so it goes /Some things are meant to be /Take my hand /Take my whole life, too /For I can't help falling in love with you/ /";
+	var lyricsE = lyricsEng.split("/");
+	var lyricsKor = "똑똑한 사람들은 그러죠, /사랑에 빠지는 건 바보같은 일이라고. /하지만 저는요 /당신을 사랑할 수 밖에 없는 걸요? /곁에 있어도 될까요? /제가 그래도 될까요? /내가 당신을 사랑할 수 밖에 없다면요./강이 흘러 흘러 /바다로 흘러가듯이 /사랑스런 사람아, 결국 그렇게 될 거예요 /어떤 일들은 때론 거스를 수  없대요. /내 손을 잡아주세요 /내 인생도 전부 /난 당신을 사랑하지 않을 수 없으니까요./강이 흘러 흘러 /바다로 흘러가듯이 /사랑스런 사람아, 결국 그렇게 될 거예요 /어떤 일들은 때론 거스를 수  없대요. /내 손을 잡아주세요 /내 인생도 전부 가져가세요 /난 당신을 사랑하지 않을 수 없으니까요./ /";
+	var lyricsK = lyricsKor.split("/");
+
+
+</script>
+</body>
+</html>

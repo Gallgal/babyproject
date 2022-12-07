@@ -1,0 +1,141 @@
+/* 전체 적용 ------------------ */
+	@import url(//fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
+	.nanummyeongjo * {font-family: 'Nanum Myeongjo', serif;}
+
+	body{background: black;
+		overflow: hidden; 
+		font-family: 'Nanum Myeongjo', serif;
+		font-size: 14pt;
+		color: white;
+		text-align: center;}
+	body,section,div,img{margin: 0; padding: 0;}
+	section{position: absolute; 
+		height: 100vh; 
+		width: 100vw;
+		overflow: hidden;
+		left: 0; top: 0;}
+	.lyric{ z-index: 1000;
+		position: absolute; 
+		width: 400px;
+		bottom: 10vh; 
+		left: 50vw; 
+		opacity: 1; 
+		transform: translateX(-200px);
+		text-shadow: 0 0 4px black;}
+	.z{z-index: 1000;}
+	.ani{animation:ani 1s forwards;}
+	@keyframes ani{from{opacity: 0;}to{opacity: 1;}}
+
+/* intro --------------------- */
+	section#int{z-index: 999; background: black;}
+	#lE{color: lightgray;
+		font-size: 1rem;
+		line-height: 1.5rem;}
+	#lK{line-height: 1.5rem;}
+	.intro{width:60vw; 
+		position: relative;
+		top: 20vh; 
+		margin: auto;}
+	.intro2{width: 15vw; 
+		height: 15vw; 
+		background: white; 
+		position: absolute; 
+		left: 23vw; 
+		top: 12vw;}
+
+/* s1 (와이즈맨 세이)--------------------- */
+	section#s1{z-index: 5;}
+	.ican{animation: mom 15s forwards; filter: grayscale(100%) brightness(0.5); opacity: 0%;}
+		@keyframes mom{50%{opacity: 100%;}
+			100%{transform: scale(1.1); filter: brightness(1.2) grayscale(100%); opacity: 0%;}}
+
+
+/* s2 (쉘 아이 스테이)--------------------- */
+	.mamma{z-index: 4; 
+		background-image: url('test.jpg'); 
+		background-size: cover;
+		filter: grayscale(100%);
+		animation: mamma 28s;}
+		@keyframes mamma{from{ transform: scale(1.3);opacity: 30%;}
+                                to{ transform: scale(1.0);opacity: 100%}
+                            }
+ 	section#grp{background: black; 
+ 			filter: blur(5px); 
+ 			mix-blend-mode: multiply; 
+ 			transform: scale(1.1);}
+ 		 .circle{background: white; width: 200px;
+                        height: 200px; border-radius: 50%;
+                        position: absolute;
+                        transform: translate(-50%,-50%);
+                        background-clip: border-box;
+                        animation: cir 1s
+                }
+                @keyframes cir{from{opacity: 0} to{opacity: 1}}
+/* s3 (라이크 어 리버 플로우)--------------------- */
+	section#s3{z-index: 3;}
+	.photoclass{display: inline-flex; 
+		width: 10vw; 
+		height: 6vw; 
+		background: red; 
+		position: relative; 
+		filter: grayscale(100%); opacity: 0;}
+		.grad{position: absolute; 
+			background: rgb(255,0,0); 
+			background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 35%, rgba(0,0,0,0) 100%); z-index: 100; pointer-events: none;}
+		.aniph{animation: anpt 20s forwards;}
+		@keyframes anpt {from{transform: scale(3.0)}to{transform: scale(1.0);}}
+/* s4 (테이크 마이 핸드)--------------------- */
+	section#s4{z-index: 2; display: none;}
+	#bg{border-radius: 50%; position: absolute; width: 1000px;  left:calc(50vw - 500px); top:  15vh ; animation: opacity 10s forwards; filter: grayscale(100%);}
+			div{margin:0 ;  z-index: 2;}
+		.hand1{position: absolute; top: 100px ; left:100px; width: 400px; z-index: 4;}
+		.hand12{position: absolute; top: 100px ; left:100px; width: 400px; opacity: 0.5; animation: drag 3s infinite;}
+		.hand3{position: absolute; top: calc(15vh + 112px) ; left:calc(50vw - 338px); width: 400px; opacity: 0; }
+		/* position: absolute; top: 11vw ; left: 16vw; width: 40vw; */
+		.hand2{position: absolute; top: calc(15vh + 90px); left: calc(50vw - 285px); width: 765px;}
+		@keyframes opacity{0%{opacity: 0} 50%{opacity: 1; /*filter: brightness(1.0);} 100%{filter: brightness(5.0) drop-shadow(0 0 100px white);*/};}
+		@keyframes drag{from{}to{left: 200px; top: 150px; opacity: 0}}
+/* s5 (아캔 헬프 폴링 인 럽)--------------------- */
+	section#s5{z-index: 1;}
+
+/* outro --------------------- */
+	section#outro{z-index: 1001; background: white; display: none;
+		color:  black; opacity: 0;}
+		.outro{animation: dessolve 5s forwards;}
+		@keyframes dessolve{to{opacity: 1}}
+	div.text_box{position: relative;
+	  top: 45vh;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  height: 100px;
+	  font-size: 1.3rem;
+	  text-align: center;
+	}
+
+	.blink {
+	  animation: blink 0.5s 5s infinite;
+	  font-size: 1.6rem; opacity: 0;
+	}
+	@keyframes blink {to {
+	    opacity: 1;
+	  }
+	}
+	.disappear{ animation: disappear 5s 15s forwards;}
+	@keyframes disappear { to{opacity: 0} }
+	#done{animation: replay 1s 22s forwards; 
+		opacity: 0; 
+		width: 100px; 
+		height: 100px; 
+		color: white; 
+		background: black; 
+		position:absolute; 
+		display: flex;
+		top: calc(50vh - 50px); 
+		left: calc(50vw - 50px);
+		justify-content: center;
+		align-items: center;
+		font-size: 1.3rem;
+		text-align: center;}
+	@keyframes replay {from{}to{opacity: 1}}
+
